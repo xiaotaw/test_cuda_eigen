@@ -15,8 +15,13 @@ set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} -g -G")
 
 
 #include_directories("/usr/include/eigen3")
-find_package(Eigen3 REQUIRED)
-INCLUDE_DIRECTORIES(${EIGEN3_INCLUDE_DIR})
+#find_package(Eigen3 REQUIRED)
+
+set(EIGEN_ROOT "/data/surfelwarp/external/eigen3.4")
+set(EIGEN_INCLUDE_DIR ${EIGEN_ROOT})
+INCLUDE_DIRECTORIES(${EIGEN_INCLUDE_DIR})
+
+
 
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIR})
