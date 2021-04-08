@@ -1,6 +1,30 @@
-# test_for_surfelwarp
-test repo for debugging surfelwarp, see more at https://github.com/weigao95/surfelwarp/issues/30
+# test_cuda_eigen
+test compatibility between cuda and eigen, for more info, please refer to issue https://github.com/weigao95/surfelwarp/issues/30
 
-## history
-20200219: cannot repeat the error as displayed at https://github.com/weigao95/surfelwarp/issues/30  
-20200226: reproduce the error, and fixed by using eigen=3.3.90  
+| ubuntu | Eigen | cuda | status |
+| ---    | ---   | ---  | ---    |
+| 18.04  | 3.3.4 | 9.0.176 | bad |
+| 18.04  | 3.3.90| 9.0.176 | good |
+| 18.04  | 3.3.4 | 10.0.130 | bad |
+| 18.04  | 3.3.9| 10.0.130 | good |
+
+## Eigen vesion
+
+Eigen version check via `Macros.h` in eigen dir, e.g.
+```bash
+grep -nR VERSION /usr/include/eigen3/Eigen/src/Core/util/Macros.h
+```
+```vim
+14:#define EIGEN_WORLD_VERSION 3
+15:#define EIGEN_MAJOR_VERSION 3
+16:#define EIGEN_MINOR_VERSION 4
+```
+
+Eigen-3.3.4: installed by `sudo apt-get install libeigen3-dev`
+Eigen-3.3.90: comes from [https://github.com/weigao95/surfelwarp/tree/master/external/eigen3.4]
+Eigen-3.3.9: comes from [https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.gz] 
+
+
+## CUDA version
+
+CUDA version check via `nvcc --version` if cuda bin has been added to your env PATH
