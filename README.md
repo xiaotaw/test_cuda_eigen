@@ -8,6 +8,18 @@ test compatibility between cuda and eigen, for more info, please refer to issue 
 | 18.04  | 3.3.4 | 10.0.130 | bad |
 | 18.04  | 3.3.9| 10.0.130 | good |
 
+## dependency
+Eigen=3.3.9, please refer to: [https://github.com/xiaotaw/Notes/ubuntu/coding.md]
+
+## compile
+
+```bash
+mkdir build && cd build
+cmake .. -DEigen3_DIR=/home/xt/Documents/data/Others/eigen-3.3.9/install/share/eigen3/cmake
+make -j
+```
+
+
 ## Eigen vesion
 
 Eigen version check via `Macros.h` in eigen dir, e.g.
